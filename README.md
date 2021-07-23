@@ -10,13 +10,13 @@ Usage:
 dos.exe <ip>:<port>
  
 Example:
-dos.exe 192.168.1.17:8080
-dos.exe 8.8.8.8:53
+ - dos.exe 192.168.1.17:8080
+ - dos.exe 8.8.8.8:53
 
 ====================================================================
 Number of threads 16 (by default)
 Number of connections per thread 32 (by default)
 
 You can change this values by editing these lines in dos.cpp
-    #define THREADS 16
-    #define CONNECTIONS 32
+ - #define THREADS 16
+ - #define CONNECTIONS 32
