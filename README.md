@@ -14,9 +14,9 @@ Example:
  - dos.exe 8.8.8.8:53<br>
 <hr>
  
-Number of threads 16 (by default)<br>
-Number of connections per thread 32 (by default)
+Number of threads 32 (by default)<br>
+Number of connections per thread 16 (by default)
 
 You can change this values by editing these lines in dos.cpp
- - #define THREADS 16
- - #define CONNECTIONS 32
+ - #define THREADS 32
+ - #define CONNECTIONS 16
